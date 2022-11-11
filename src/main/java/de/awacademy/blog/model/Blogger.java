@@ -7,7 +7,7 @@ import javax.validation.constraints.NotEmpty;
 
 
 @Entity
-@Table(name = "users")
+@Table(name = "bloggers")
 public class Blogger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
