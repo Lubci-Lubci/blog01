@@ -13,6 +13,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    // testing git
+
     @NotEmpty(message = "Login can't be empty")
     @Column (name = "login")
     private String Login;
