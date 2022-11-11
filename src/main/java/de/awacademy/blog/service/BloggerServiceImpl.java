@@ -35,6 +35,11 @@ public class BloggerServiceImpl implements BloggerService {
     }
 
     @Override
+    public void updateBloggerById(long id) {
+
+    }
+
+    @Override
     public void deleteBloggerById(long id) {
         this.bloggerRepository.deleteById(id);
     }
