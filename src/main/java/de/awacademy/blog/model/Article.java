@@ -17,6 +17,10 @@ public class Article {
     @Column(name = "article_name")
     private String title;
 
+//    @ManyToOne(optional = false)
+//    @JoinColumn(name = "blogger_id", nullable = false)
+//    private Blogger blogger;
+
     public Article() {
     }
 
