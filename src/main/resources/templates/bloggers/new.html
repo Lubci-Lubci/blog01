@@ -17,7 +17,12 @@
             <input type="text" th:field="*{age}" placeholder="Insert age">
             <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p>
 
+
+            <input type="hidden" th:field="*{id}">
+            <button type="submit">Save Blogger</button>
         </form>
+        <hr>
+        <a th:href="@{/bloggers}">Back to Bloggers List</a>
 
         </body>
 </html>

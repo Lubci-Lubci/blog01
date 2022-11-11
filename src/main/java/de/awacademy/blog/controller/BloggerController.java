@@ -35,7 +35,7 @@ public class BloggerController {
     public String showNewBloggerForm(Model model){
         model.addAttribute("blogger", new Blogger());
 
-        return "blogger/new";
+        return "bloggers/new";
     }
 
     @PostMapping("/bloggers/saveBlogger")
