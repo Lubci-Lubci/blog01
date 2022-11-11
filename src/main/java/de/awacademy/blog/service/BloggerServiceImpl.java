@@ -16,13 +16,14 @@ public class BloggerServiceImpl implements BloggerService {
 
     @Override
     public List<Blogger> getAllBloggers() {
-        return null;
+        //return null;
+        return bloggerRepository.findAll(); // Select
     }
 
     @Override
     public void saveBlogger(Blogger blogger) {
-
-    }
+        this.bloggerRepository.save(blogger);
+    }                           // INSERT
 
     @Override
     public Blogger getBloggerById(long id) {
@@ -30,7 +31,7 @@ public class BloggerServiceImpl implements BloggerService {
     }
 
     @Override
-    public void deleteEmployeeById(long id) {
+    public void deleteBloggerById(long id) {
 
     }
 }

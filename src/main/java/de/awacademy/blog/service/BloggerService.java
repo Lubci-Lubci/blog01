@@ -12,7 +12,7 @@ public interface BloggerService {
 
     Blogger getBloggerById(long id);
 
-    void deleteEmployeeById(long id);
+    void deleteBloggerById(long id);
 
 
 
