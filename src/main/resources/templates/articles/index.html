@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Blog Web App</title>
+  </head>
+    <body>
+      <h1>Blog</h1>
+      <p th:if="${listOfArticles.isEmpty()}">
+        No article yet!
+      </p>
+      <<table th:unless="${listOfArticles.isEmpty()}">
+        <thead>
+          <th>Title of article</th>
+<!--          <th>Author</th>-->
+<!--          <th>No. of comments</th>-->
+<!--          <th>Date of publish</th>-->
+        </thead>
+        <tbody>
+          <tr th:each="article : ${listOfArticles}">
+            <td th:text="${article.title}"></td>
+<!--            need to make constraint between blogger and articles-->
+<!--            <td th:text="${blogger.nickname}"></td>-->
+<!--            need to make constraint between articles and comments-->
+<!--            <td th:text="${article.comments}"></td>-->
+<!--            insert current time method -->
+<!--            <td th:text="${#dates.format(#dates.createNow(), 'YYYY/MM/dd HH:mm')}"></td>-->
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <a th:href="@{/articles/showNewArticleForm}">Create a new Article</a>
+    </body>
+  </html>
