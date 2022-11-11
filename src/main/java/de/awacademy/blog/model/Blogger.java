@@ -5,15 +5,12 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 
-
 @Entity
 @Table(name = "bloggers")
 public class Blogger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    // comment
 
     @NotEmpty(message = "Login can't be empty")
     @Column (name = "login")
