@@ -25,7 +25,12 @@ public class BloggerController {
         return "bloggers/index";
     }
 
+    @GetMapping("/bloggers/showNewBloggerForm")
+    public String showNewBloggerForm(Model model){
+        model.addAttribute("blogger", new Blogger());
 
+        return "blogger/new";
+    }
 
 
 
