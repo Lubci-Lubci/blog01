@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class Blogger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -34,7 +34,7 @@ public class User {
     private int Age;
 
 
-    public User() {
+    public Blogger() {
     }
 
 
