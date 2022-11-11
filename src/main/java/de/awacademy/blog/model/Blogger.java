@@ -13,7 +13,7 @@ public class Blogger {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    // testing git
+    // comment
 
     @NotEmpty(message = "Login can't be empty")
     @Column (name = "login")
