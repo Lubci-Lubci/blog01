@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-      <meta charset="UTF-8">
-      <title>Blog Web App</title>
-  </head>
-    <body>
+      <head>
+          <meta charset="UTF-8">
+          <title>Blog Web App</title>
+      </head>
+        <body>
+        <h1>Blog Web App</h1>
+        <h2>Save Blogger</h2>
+        <form action="#" th:action="@{/bloggers/saveBlogger}" th:object="${blogger}" method="post">
+            <input type="text" th:field="*{login}" placeholder="Insert login">
+            <p th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></p>
+            <input type="text" th:field="*{password}" placeholder="Insert password">
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+            <input type="text" th:field="*{email}" placeholder="Insert email">
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+            <input type="text" th:field="*{age}" placeholder="Insert age">
+            <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p>
 
-    </body>
+        </form>
+
+        </body>
 </html>
