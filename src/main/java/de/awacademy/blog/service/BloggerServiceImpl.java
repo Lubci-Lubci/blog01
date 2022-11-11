@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BloggerServiceImpl implements BloggerService {
@@ -27,11 +28,14 @@ public class BloggerServiceImpl implements BloggerService {
 
     @Override
     public Blogger getBloggerById(long id) {
-        return null;
+        Optional<Blogger> optional = this.bloggerRepository.findById(id);
+        Blogger blogger = null;
+
+        return blogger;
     }
 
     @Override
     public void deleteBloggerById(long id) {
-
+        this.bloggerRepository.deleteById(id);
     }
 }
