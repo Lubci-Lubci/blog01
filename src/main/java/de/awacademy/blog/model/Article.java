@@ -3,6 +3,7 @@ package de.awacademy.blog.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity
 @Table(name = "articles")
@@ -16,6 +17,9 @@ public class Article {
     @NotNull
     @Column(name = "article_name")
     private String title;
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Date createdDate;
 
 //    @ManyToOne(optional = false)
 //    @JoinColumn(name = "blogger_id", nullable = false)
@@ -38,5 +42,13 @@ public class Article {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 }
