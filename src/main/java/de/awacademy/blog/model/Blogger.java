@@ -22,11 +22,9 @@ public class Blogger {
     @Column(name = "last_name")
     private String lastName;
 
-    @NotEmpty(message = "Login can't be empty")
     @Column (name = "login")
     private String Login;
 
-    @NotEmpty(message = "Password can't be empty")
     @Column(name = "password")
     private String Password;
 

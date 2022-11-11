@@ -38,7 +38,7 @@ public class BloggerController {
         return "bloggers/new";
     }
 
-    @PostMapping("/bloggers/saveBlogger")
+/*    @PostMapping("/bloggers/saveBlogger")
     public String saveBlogger(@Valid @ModelAttribute Blogger blogger,
                               BindingResult result){
         if (result.hasErrors()){
@@ -46,6 +46,13 @@ public class BloggerController {
         }
 
         bloggerService.saveBlogger(blogger);
+
+        return "redirect:/bloggers";
+    }
+*/
+
+    @PostMapping("/bloggers/saveBlogger")
+    public String saveBlogger(@ModelAttribute Blogger blogger){
 
         return "redirect:/bloggers";
     }

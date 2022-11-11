@@ -12,6 +12,8 @@
       </p>
       <table th:unless="${listOfBloggers.size() < 1}">
           <thead>
+              <th>First Name</th>
+              <th>Last Name</th>
               <th>Login</th>
               <th>Password</th>
               <th>Email</th>
@@ -20,6 +22,8 @@
           </thead>
           <tbody>
             <tr th:each="blogger : ${listOfBloggers}">
+                <td th:text="${blogger.firstName}"></td>
+                <td th:text="${blogger.lastName}"></td>
                 <td th:text="${blogger.login}"></td>
                 <td th:text="${blogger.password}"></td>
                 <td th:text="${blogger.email}"></td>
