@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Blog Web App</title>
-</head>
-  <body>
-    <h1>Blog of something</h1>
+  <head>
+      <meta charset="UTF-8">
+      <title>Blog Web App</title>
+  </head>
+    <body>
+      <h1>List of bloggers</h1>
+      <a th:href="@{/bloggers/showNewBloggerForm}">Add Blogger</a>
+      <p th:if="${listOfBloggers.size() < 1}">
+          <span>There is no bloggers!</span>
+      </p>
+      <table th:unless="${listOfBloggers.size() < 1}">
+          <thead>
+              <th>Login</th>
+              <th>Password</th>
+              <th>Email</th>
+              <th>Age</th>
+              <th>Actions</th>
+          </thead>
+          <tbody>
+            <tr>
 
-  </body>
+
+            </tr>
+          </tbody>
+
+      </table>
+
+    </body>
 </html>
