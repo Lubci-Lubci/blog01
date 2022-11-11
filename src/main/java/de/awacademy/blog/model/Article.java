@@ -13,13 +13,17 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotEmpty(message = "Title could not be empty.")
+    @NotEmpty(message = "Title could not be empty")
     @NotNull
-    @Column(name = "article_name")
+    @Column(name = "title")
     private String title;
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Date createdDate;
+
+    @NotEmpty(message = "You could not post an empty article")
+    @Column(name = "content")
+    private String content;
 
 //    @ManyToOne(optional = false)
 //    @JoinColumn(name = "blogger_id", nullable = false)
@@ -50,5 +54,13 @@ public class Article {
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }
