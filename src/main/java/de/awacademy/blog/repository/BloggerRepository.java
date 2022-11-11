@@ -1,4 +1,7 @@
 package de.awacademy.blog.repository;
 
-public interface BloggerRepository {
+import de.awacademy.blog.model.Blogger;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BloggerRepository extends JpaRepository<Blogger, Long> {
 }
