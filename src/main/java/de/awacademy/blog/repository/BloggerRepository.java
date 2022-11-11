@@ -1,4 +1,4 @@
 package de.awacademy.blog.repository;
 
-public interface UserRepository {
+public interface BloggerRepository {
 }
