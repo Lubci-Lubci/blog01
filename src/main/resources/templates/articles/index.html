@@ -6,10 +6,10 @@
   </head>
     <body>
       <h1>Blog</h1>
-      <p th:if="${listOfArticles.isEmpty()}">
+      <p th:if="${listOfArticles.size() < 1}">
         No article yet!
       </p>
-      <<table th:unless="${listOfArticles.isEmpty()}">
+      <table th:unless="${listOfArticles.size() < 1}">
         <thead>
           <th>Title of article</th>
 <!--          <th>Author</th>-->
@@ -28,7 +28,7 @@
           </tr>
         </tbody>
       </table>
-      <hr>
+      <br>
       <a th:href="@{/articles/showNewArticleForm}">Create a new Article</a>
     </body>
   </html>
