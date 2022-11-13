@@ -5,7 +5,19 @@
   <title>Blog Web App</title>
 </head>
 <body>
-<h2>Create new Article</h2>
+<h2>Edit Article</h2>
+  <form action="#" th:action="@{/articles/saveArticle}" th:object="${article}" method="post">
 
+    <input type="text" th:field="*{title}" placeholder="Insert title of article">
+    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+    <br>
+
+    <textarea th:field="*{content}"></textarea>
+    <br>
+
+    <input type="hidden" th:field="*{id}">
+
+    <button type="submit">Save changes and post</button>
+  </form>
 </body>
 </html>

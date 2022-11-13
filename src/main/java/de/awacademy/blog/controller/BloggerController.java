@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class BloggerController {
@@ -79,8 +82,12 @@ public class BloggerController {
 
     @GetMapping("/articles")
     public String articlesHome(Model model){
-    model.addAttribute("listOfArticles", articleService.getAllArticles());
-    return "articles/index";
+        List<Article> articles = articleService.getAllArticles();
+        articles = articles.stream().sorted(Comparator.comparing(Article::getId).reversed())    // chronological order (newest first)
+                        .collect(Collectors.toList());
+        model.addAttribute("listOfArticles", articles);
+
+        return "articles/index";
     }
 
     @GetMapping("/articles/showNewArticleForm")
@@ -112,5 +119,12 @@ public class BloggerController {
         bloggerService.deleteBloggerById(id);
 
         return "redirect:/articles";
+    }
+
+    @GetMapping("/articles/showFormForRead/{id}")
+    public String showFormForReadArticle(@PathVariable(value = "id") long id, Model model){
+        Article article = articleService.getArticleById(id);
+        model.addAttribute("article", article);
+        return "articles/read";
     }
 }
