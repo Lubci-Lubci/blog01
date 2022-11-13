@@ -6,7 +6,7 @@
       </head>
         <body>
         <h1>Blog Web App</h1>
-        <h2>Save Blogger</h2>
+        <h2>Create new blogger</h2>
         <form action="#" th:action="@{/bloggers/saveBlogger}" th:object="${blogger}" method="post">
             <input type="text" th:field="*{firstName}" placeholder="Insert first name">
             <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
@@ -14,7 +14,7 @@
             <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
             <input type="text" th:field="*{login}" placeholder="Insert login">
             <p th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></p>
-            <input type="text" th:field="*{password}" placeholder="Insert password">
+            <input type="password" th:field="*{password}" placeholder="Insert password">
             <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
             <input type="text" th:field="*{email}" placeholder="Insert email">
             <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
