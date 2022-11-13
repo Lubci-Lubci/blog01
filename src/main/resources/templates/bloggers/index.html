@@ -17,8 +17,8 @@
               <th>Login</th>
               <th>Password</th>
               <th>Email</th>
-              <th>Age</th>
-              <th>Actions</th>
+<!--              <th>Age</th>-->
+<!--              <th>Actions</th>-->
           </thead>
           <tbody>
             <tr th:each="blogger : ${listOfBloggers}">
@@ -27,9 +27,9 @@
                 <td th:text="${blogger.login}"></td>
                 <td th:text="${blogger.password}"></td>
                 <td th:text="${blogger.email}"></td>
-                <td th:text="${blogger.age}"></td>
+<!--                <td th:text="${blogger.age}"></td>-->
                 <td>
-                    <a th:href="@{/bloggers/showFormForUpdate/{id}(id=${blogger.id})}">Update</a>
+                    <a th:href="@{/bloggers/showFormForEdit/{id}(id=${blogger.id})}">Update</a>
                     <a th:href="@{/bloggers/showFormForDelete/{id}(id=${blogger.id})}">Delete</a>
                 </td>
             </tr>

@@ -35,7 +35,7 @@ public class BloggerServiceImpl implements BloggerService {
     }
 
     @Override
-    public void updateBloggerById(long id) {
+    public void editBloggerById(long id) {
 
     }
 

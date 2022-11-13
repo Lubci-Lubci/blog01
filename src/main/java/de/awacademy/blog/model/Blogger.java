@@ -33,7 +33,7 @@ public class Blogger {
     @Column(name = "email")
     private String email;
 
-    @NotEmpty(message = "Age can't be empty")
+//    @NotEmpty(message = "Age can't be empty")
     @Column(name = "age")
     //@Pattern(^\d{1,2}$)
     private int Age;

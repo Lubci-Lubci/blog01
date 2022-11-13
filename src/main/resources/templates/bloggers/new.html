@@ -6,7 +6,7 @@
       </head>
         <body>
         <h1>Blog Web App</h1>
-        <h2>Save Blogger</h2>
+        <h2>Create new blogger</h2>
         <form action="#" th:action="@{/bloggers/saveBlogger}" th:object="${blogger}" method="post">
             <input type="text" th:field="*{firstName}" placeholder="Insert first name">
             <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
