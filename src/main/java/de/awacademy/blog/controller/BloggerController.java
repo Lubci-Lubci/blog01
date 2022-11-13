@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Comparator;
@@ -27,6 +24,13 @@ public class BloggerController {
     public BloggerController(BloggerService bloggerService, ArticleService articleService) {
         this.bloggerService = bloggerService;
         this.articleService = articleService;
+    }
+
+    @GetMapping("/")
+    @ResponseBody
+    public String hello(@RequestParam(required = false, defaultValue = "Guest ", name = "login") String Login){
+
+    return Login.isEmpty() ? "Hello guest" : "Hello " + Login;
     }
 
     /* ----------------------   Blogger (users / admins) stuff   ----------------------*/
