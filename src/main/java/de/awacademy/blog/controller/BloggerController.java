@@ -54,23 +54,6 @@ public class BloggerController {
     }
 
 
-/*    @PostMapping("/bloggers/saveBlogger")
-    public String saveBlogger(@ModelAttribute Blogger blogger){
-
-        return "redirect:/bloggers";
-    }*/
-
-/*    @PostMapping("/bloggers/saveBlogger")
-    public String saveBlogger(@Valid @ModelAttribute Blogger blogger,
-                              BindingResult bindingResult) {
-        if (bindingResult.hasErrors()){
-            return "bloggers/new";
-        }
-        bloggerService.saveBlogger(blogger);
-
-        return "redirect:/bloggers";
-    }*/
-
     @GetMapping("/bloggers/showFormForEdit/{id}")
     public String showFormForEdit(@PathVariable(value = "id") long id, Model model){
         Blogger blogger = bloggerService.getBloggerById(id);
