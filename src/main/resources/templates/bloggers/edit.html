@@ -14,7 +14,7 @@
             <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
             <input type="text" th:field="*{login}" placeholder="Insert login">
             <p th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></p>
-            <input type="text" th:field="*{password}" placeholder="Insert password">
+            <input type="password" th:field="*{password}" placeholder="Insert password">
             <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
             <input type="text" th:field="*{email}" placeholder="Insert email">
             <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>

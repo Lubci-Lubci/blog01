@@ -59,7 +59,7 @@ public class BloggerController {
         Blogger blogger = bloggerService.getBloggerById(id);
 
         model.addAttribute("blogger", blogger);
-        return "edit";
+        return "/bloggers/edit";
     }
 
     @GetMapping("bloggers/showFormForDelete/{id}")
