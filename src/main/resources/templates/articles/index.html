@@ -22,7 +22,7 @@
         <tbody>
           <tr th:each="article : ${listOfArticles}">
             <td th:text="${article.title}"></td>
-<!--            <td th:text="${article.content}"></td>-->
+            <td th:text="${article.content}"></td>
             <td>
               <a th:href="@{/articles/showFormForRead/{id}(id=${article.id})}">Read</a>
             </td>
