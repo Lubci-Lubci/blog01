@@ -3,10 +3,9 @@ package de.awacademy.blog.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
-import java.util.HashSet;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "articles")
@@ -22,7 +21,7 @@ public class Article {
     private String title;
 
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Date createdDate;
+    private LocalDateTime createdDate;
 
     @NotEmpty(message = "You could not post an empty article")
     @Column(name = "content")
@@ -54,11 +53,14 @@ public class Article {
         this.title = title;
     }
 
-    public Date getCreatedDate() {
+    public LocalDateTime getCreatedDate() {
+        LocalDateTime dateTime = LocalDateTime.now();
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        createdDate.format(dateFormat);
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(LocalDateTime createdDate) {
         this.createdDate = createdDate;
     }
 
