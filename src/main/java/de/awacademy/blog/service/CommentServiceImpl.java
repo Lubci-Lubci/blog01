@@ -33,7 +33,7 @@ public class CommentServiceImpl implements CommentService {
         if(optional.isPresent()){
             comment = optional.get();
         } else {
-            throw new RuntimeException("Blogger with id " + id + " was not found");
+            throw new RuntimeException("Comment with id " + id + " was not found");
         }
 
         return comment;
