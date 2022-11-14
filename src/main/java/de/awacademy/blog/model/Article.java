@@ -4,6 +4,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "articles")
@@ -25,9 +28,12 @@ public class Article {
     @Column(name = "content")
     private String content;
 
-//    @ManyToOne(optional = false)
-//    @JoinColumn(name = "blogger_id", nullable = false)
-//    private Blogger blogger;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "blogger_id", nullable = false)
+    private Blogger blogger;
+
+    @OneToMany(mappedBy = "article")
+    private List<Comment> commentList;
 
     public Article() {
     }
@@ -62,5 +68,21 @@ public class Article {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Blogger getBlogger() {
+        return blogger;
+    }
+
+    public void setBlogger(Blogger blogger) {
+        this.blogger = blogger;
+    }
+
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
     }
 }

@@ -21,8 +21,12 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Date createdDate;
 
-//    @ManyToOne
-//    private Blogger blogger;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "blogger_id", nullable = false)
+    private Blogger blogger;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "article_id", nullable = false)
+    private Article article;
 
 //    @ManyToMany(mappedBy = "comments")
 //    private Set<Article> articles = new HashSet<>();
@@ -52,5 +56,21 @@ public class Comment {
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public Blogger getBlogger() {
+        return blogger;
+    }
+
+    public void setBlogger(Blogger blogger) {
+        this.blogger = blogger;
+    }
+
+    public Article getArticle() {
+        return article;
+    }
+
+    public void setArticle(Article article) {
+        this.article = article;
     }
 }
