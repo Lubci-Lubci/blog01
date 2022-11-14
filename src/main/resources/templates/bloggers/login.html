@@ -8,7 +8,7 @@
     <h1>Bloggers App</h1>
     <h2>Register yourself</h2>
     <form action="#" th:action="@{/bloggers/saveBlogger}" th:object="${blogger}" method="post">
-      <p th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></p>
+      <p th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></p>
       <input type="password" th:field="*{password}" placeholder="Insert password">
       <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
 

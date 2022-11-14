@@ -1,10 +1,10 @@
 package de.awacademy.blog.model;
 
-import javax.annotation.processing.Generated;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -14,6 +14,20 @@ public class Blogger {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column (name = "user_name")
+    private String userName;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "admin")
+    private boolean admin;
+
+    // toto treba este dorobit domysliet ze ako
+    @OneToMany(mappedBy = "blogger")
+    private List<Article> articleList;
+
+
     @NotEmpty(message = "Name can't be empty")
     @Column(name = "first_name")
     private String firstName;
@@ -21,12 +35,6 @@ public class Blogger {
     @NotEmpty(message = "Name can't be empty")
     @Column(name = "last_name")
     private String lastName;
-
-    @Column (name = "login")
-    private String Login;
-
-    @Column(name = "password")
-    private String Password;
 
     @Email(message = "Email patter is not correct")
     @NotEmpty(message = "Name can't be empty")
@@ -36,7 +44,7 @@ public class Blogger {
 //    @NotEmpty(message = "Age can't be empty")
     @Column(name = "age")
     //@Pattern(^\d{1,2}$)
-    private int Age;
+    private int age;
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Date createdDate;
@@ -55,19 +63,19 @@ public class Blogger {
     }
 
     public String getLogin() {
-        return Login;
+        return userName;
     }
 
-    public void setLogin(String login) {
-        Login = login;
-    }
+//    public void setLogin(String login) {
+//        userName = login;
+//    }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getEmail() {
@@ -79,11 +87,11 @@ public class Blogger {
     }
 
     public int getAge() {
-        return Age;
+        return age;
     }
 
     public void setAge(int age) {
-        Age = age;
+        this.age = age;
     }
 
     public String getFirstName() {
@@ -110,4 +118,19 @@ public class Blogger {
         this.createdDate = createdDate;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
 }
