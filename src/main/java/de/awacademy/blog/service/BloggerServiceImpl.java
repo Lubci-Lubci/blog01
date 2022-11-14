@@ -31,6 +31,12 @@ public class BloggerServiceImpl implements BloggerService {
         Optional<Blogger> optional = this.bloggerRepository.findById(id);
         Blogger blogger = null;
 
+        if(optional.isPresent()){
+            blogger = optional.get();
+        } else {
+            throw new RuntimeException("Blogger with id " + id + " was not found");
+        }
+
         return blogger;
     }
 
