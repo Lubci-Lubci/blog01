@@ -29,6 +29,13 @@ public class CommentServiceImpl implements CommentService {
     public Comment getCommentById(long id) {
         Optional<Comment> optional = this.commentRepository.findById(id);
         Comment comment = null;
+
+        if(optional.isPresent()){
+            comment = optional.get();
+        } else {
+            throw new RuntimeException("Blogger with id " + id + " was not found");
+        }
+
         return comment;
     }
 
