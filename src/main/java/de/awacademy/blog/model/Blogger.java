@@ -13,10 +13,12 @@ public class Blogger {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column (name = "user_name")
+    @NotEmpty(message = "User name can't be empty")
+    @Column (name = "user_name", nullable = false, length = 64)
     private String userName;
 
-    @Column(name = "password")
+    @NotEmpty(message = "Password can't be empty")
+    @Column(name = "password", nullable = false, length = 64)
     private String password;
 
     @Column(name = "admin")
@@ -31,16 +33,16 @@ public class Blogger {
     private List<Comment> commentList;
 
     @NotEmpty(message = "Name can't be empty")
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false, length = 20)
     private String firstName;
 
     @NotEmpty(message = "Name can't be empty")
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false, length = 20)
     private String lastName;
 
     @Email(message = "Email patter is not correct")
     @NotEmpty(message = "Name can't be empty")
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true, length = 45)
     private String email;
 
 //    @NotEmpty(message = "Age can't be empty")
