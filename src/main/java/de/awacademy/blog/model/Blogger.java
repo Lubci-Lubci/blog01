@@ -4,7 +4,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -24,9 +26,12 @@ public class Blogger {
     private boolean admin;
 
     // toto treba este dorobit domysliet ze ako
-    @OneToMany(mappedBy = "blogger")
-    private List<Article> articleList;
+//    @OneToMany(mappedBy = "blogger")
+//    private List<Article> articleList;
 
+//     toto treba este dorobit domysliet ze ako
+//    @OneToMany(mappedBy = "blogger")
+//    private Set<Comment> comments = new HashSet<>();
 
     @NotEmpty(message = "Name can't be empty")
     @Column(name = "first_name")

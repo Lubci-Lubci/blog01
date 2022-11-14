@@ -29,6 +29,12 @@ public class ArticleServiceImpl implements ArticleService{
         Optional<Article> optional = this.articleRepository.findById(id);
         Article article = null;
 
+        if(optional.isPresent()){
+            article = optional.get();
+        } else {
+            throw new RuntimeException("Article with id " + id + " was not found");
+        }
+
         return article;
     }
 

@@ -3,6 +3,8 @@ package de.awacademy.blog.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
 
 @Entity
 @Table(name = "comments")
@@ -18,6 +20,12 @@ public class Comment {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Date createdDate;
+
+//    @ManyToOne
+//    private Blogger blogger;
+
+//    @ManyToMany(mappedBy = "comments")
+//    private Set<Article> articles = new HashSet<>();
 
     public Comment() {
     }

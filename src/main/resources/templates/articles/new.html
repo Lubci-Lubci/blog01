@@ -10,13 +10,13 @@
 
       <table>
         <label>Title:<br/></label>
-        <input type="text" th:field="*{title}" placeholder="Insert title of article">
+        <input type="text" th:field="*{title}" placeholder="Title">
         <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
         <br>
       </table>
       <table>
         <label>Content:<br/></label>
-        <textarea th:field="*{content}"></textarea>
+        <textarea th:field="*{content}" placeholder="Your content..."></textarea>
         <br>
       </table>
 <!--      <p th:text="${#dates.format(#dates.createNow(), 'YYYY/MM/dd HH:mm')}"></p>-->
