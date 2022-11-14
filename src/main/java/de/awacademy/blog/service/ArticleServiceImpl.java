@@ -37,4 +37,9 @@ public class ArticleServiceImpl implements ArticleService{
         this.articleRepository.deleteById(id);
     }
 
+    @Override
+    public void editArticleByID(long id) {
+
+    }
+
 }
