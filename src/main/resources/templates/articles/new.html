@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Blog Web App</title>
+    <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
   </head>
   <body>
     <h2>Create new Article</h2>
@@ -20,12 +21,17 @@
         <br>
       </span>
       <span>
+        <label>UserId:<br/></label>
+        <input type="text" th:field="*{blogger.id}" placeholder="userID">
+        <br/>
+      </span>
+      <span>
         <label>Content:<br/></label>
         <textarea th:field="*{content}" placeholder="Your content..."></textarea>
         <br>
       </span>
 <!--      <p th:text="${#dates.format(#dates.createNow(), 'YYYY/MM/dd HH:mm')}"></p>-->
-      <input type="hidden" th:field="*{blogger.id}" id="blogger_id">
+<!--      <input type="hidden" th:field="*{id}">-->
 
       <button type="submit">Post Article</button>
     </form>

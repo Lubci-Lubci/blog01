@@ -13,16 +13,16 @@ public class Blogger {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotEmpty(message = "User name can't be empty")
-    @Column (name = "user_name", nullable = false, length = 64)
+//    @NotEmpty(message = "User name can't be empty")
+    @Column (name = "user_name")
     private String userName;
 
-    @NotEmpty(message = "Password can't be empty")
-    @Column(name = "password", nullable = false, length = 64)
+//    @NotEmpty(message = "Password can't be empty")
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "admin")
-    private boolean admin;
+//    @Column(name = "admin")
+//    private boolean admin;
 
 //     toto treba este dorobit domysliet ze ako
     @OneToMany(mappedBy = "blogger")
@@ -32,26 +32,26 @@ public class Blogger {
     @OneToMany(mappedBy = "blogger")
     private List<Comment> commentList;
 
-    @NotEmpty(message = "Name can't be empty")
-    @Column(name = "first_name", nullable = false, length = 20)
+//    @NotEmpty(message = "Name can't be empty")
+    @Column(name = "first_name")
     private String firstName;
 
-    @NotEmpty(message = "Name can't be empty")
-    @Column(name = "last_name", nullable = false, length = 20)
+//    @NotEmpty(message = "Name can't be empty")
+    @Column(name = "last_name")
     private String lastName;
 
     @Email(message = "Email patter is not correct")
-    @NotEmpty(message = "Name can't be empty")
-    @Column(name = "email", nullable = false, unique = true, length = 45)
+//    @NotEmpty(message = "Name can't be empty")
+    @Column(name = "email")
     private String email;
 
 //    @NotEmpty(message = "Age can't be empty")
-    @Column(name = "age")
-    //@Pattern(^\d{1,2}$)
-    private int age;
+//    @Column(name = "age")
+//    //@Pattern(^\d{1,2}$)
+//    private int age;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Date createdDate;
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Date createdDate;
 
 
     public Blogger() {
@@ -90,13 +90,13 @@ public class Blogger {
         this.email = email;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
+//    public int getAge() {
+//        return age;
+//    }
+//
+//    public void setAge(int age) {
+//        this.age = age;
+//    }
 
     public String getFirstName() {
         return firstName;
@@ -114,13 +114,13 @@ public class Blogger {
         this.lastName = lastName;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
+//    public Date getCreatedDate() {
+//        return createdDate;
+//    }
+//
+//    public void setCreatedDate(Date createdDate) {
+//        this.createdDate = createdDate;
+//    }
 
     public String getUserName() {
         return userName;
@@ -130,13 +130,13 @@ public class Blogger {
         this.userName = userName;
     }
 
-    public boolean isAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
-    }
+//    public boolean isAdmin() {
+//        return admin;
+//    }
+//
+//    public void setAdmin(boolean admin) {
+//        this.admin = admin;
+//    }
 
     public List<Article> getArticleList() {
         return articleList;
