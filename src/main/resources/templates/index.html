@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Blog Web App</title>
   </head>
   <body>
     <h1>Bloggers App</h1>
-    <p>Hello!</p>
+<!--      <form action="/" method="post">-->
+    <a th:href="@{/bloggers/showNewBloggerForm}">
+        <button >Register as new blogger</button><br><br>
+    </a>
+
+    <a th:href="@{/login}">
+        <button>Log in as existing blogger</button><br><br>
+    </a>
+
+    <a th:href="@{/articles}">
+        <button>Go to blogs</button><br><br>
+    </a>
+
+
   </body>
 </html>

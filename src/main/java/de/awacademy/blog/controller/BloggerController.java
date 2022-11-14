@@ -26,12 +26,12 @@ public class BloggerController {
         this.articleService = articleService;
     }
 
-    @GetMapping("/")
+/*    @GetMapping("/")
     @ResponseBody
     public String hello(@RequestParam(required = false, defaultValue = "Guest ", name = "login") String Login){
 
     return Login.isEmpty() ? "Hello guest" : "Hello " + Login;
-    }
+    }  */
 
     /* ----------------------   Blogger (users / admins) stuff   ----------------------*/
     @GetMapping("/bloggers")
