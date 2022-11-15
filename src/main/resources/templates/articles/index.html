@@ -7,7 +7,7 @@
   </head>
     <body>
       <h1>Blog</h1>
-      <a th:href="@{/articles/showNewArticleForm}">Create a new Article</a><br><br>
+      <a th:href="@{/articles/showNewArticleForm}"><button>Create a new Article</button></a><br><br>
       <p th:if="${listOfArticles.isEmpty()}">
         No article yet!
       </p>
@@ -39,7 +39,7 @@
       </table>
 
       <hr>
-      <a th:href="@{/bloggers}">Go to Bloggers List</a><br>
-      <a th:href="@{/}">Back to start</a>
+      <a th:href="@{/bloggers}"><button>Go to Bloggers List</button></a><br><br>
+      <a th:href="@{/}"><button>Back to start</button></a>
     </body>
   </html>
