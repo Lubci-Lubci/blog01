@@ -2,9 +2,12 @@ package de.awacademy.blog.controller;
 
 import de.awacademy.blog.model.Article;
 import de.awacademy.blog.model.Blogger;
+import de.awacademy.blog.model.User;
+import de.awacademy.blog.repository.UserRepository;
 import de.awacademy.blog.service.ArticleService;
 import de.awacademy.blog.service.BloggerService;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,6 +35,33 @@ public class BloggerController {
 
     return Login.isEmpty() ? "Hello guest" : "Hello " + Login;
     }  */
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @GetMapping("/")
+    public String viewHomePage(){
+        return "index";
+    }
+
+    @GetMapping("/register")
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("user", new User());
+
+        return "signup_form";
+    }
+
+    // process the registration
+/*    @PostMapping("/process_register")
+    public String processRegister(User user) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+
+        userRepository.save(user);
+
+        return "register_success";
+    }*/
 
     /* ----------------------   Blogger (users / admins) stuff   ----------------------*/
     @GetMapping("/bloggers")
@@ -118,7 +148,7 @@ public class BloggerController {
 
     @GetMapping("articles/showFormForDeleteArticle/{id}")
     public String showFormForDeleteArticle(@PathVariable(value = "id") long id){
-        bloggerService.deleteBloggerById(id);
+        articleService.deleteArticleById(id);
 
         return "redirect:/articles";
     }
