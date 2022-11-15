@@ -27,7 +27,8 @@
 <!--    <a th:href="@{/articles}">Comment</a>-->
 <!--    <br/>-->
     <hr>
-    <a th:href="@{/articles/showFormForEdit/{id}(id=${article.id})}">Edit</a>
+    <a th:href="@{/articles/showFormForEdit/{id}(id=${article.id})}">Edit</a><br>
+    <a th:href="@{/articles/showFormForDeleteArticle/{id}(id=${article.id})}">Delete</a>
     <hr>
     <a th:href="@{/articles}">Back to Articles</a><br>
     <a th:href="@{/bloggers}">Go to Bloggers List</a><br>
