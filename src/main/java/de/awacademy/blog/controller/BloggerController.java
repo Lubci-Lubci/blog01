@@ -24,9 +24,10 @@ public class BloggerController {
     private CommentService commentService;
 
     @Autowired
-    public BloggerController(BloggerService bloggerService, ArticleService articleService) {
+    public BloggerController(BloggerService bloggerService, ArticleService articleService, CommentService commentService) {
         this.bloggerService = bloggerService;
         this.articleService = articleService;
+        this.commentService = commentService;
     }
 
 /*    @GetMapping("/")
@@ -132,6 +133,8 @@ public class BloggerController {
         model.addAttribute("article", article);
 
         model.addAttribute("listOfBloggers", bloggerService.getAllBloggers());
+        model.addAttribute("listOfComments", commentService.getAllComments());
+
 //        model.addAttribute("listOfComments", commentService.getAllComments());
 
 //        List<Comment> comments = commentService.getAllComments();
@@ -145,13 +148,12 @@ public class BloggerController {
     /* ----------------------   Comment stuff   ----------------------*/
 
     @GetMapping("/comments/showNewCommentForm/{id}")
-    public String showNewCommentForm(@PathVariable(value = "id") long id, Model model){
+    public String showNewCommentForm(@PathVariable(value = "id") long id, Model model, Blogger blogger) {
         model.addAttribute("comment", new Comment());
 
 //        Article article = articleService.getArticleById(id);
-//        model.addAttribute("article_id", article.getId());
-
-//        Comment comment = commentService.getCommentById(id);
+//        model.addAttribute("article_id", article);
+        model.addAttribute("listOfArticles", articleService.getAllArticles());
 
         model.addAttribute("listOfBloggers", bloggerService.getAllBloggers());
 
@@ -159,22 +161,19 @@ public class BloggerController {
     }
     @PostMapping("/comments/saveComment")
     public String saveComment(@Valid @ModelAttribute Comment comment,
-                              BindingResult bindingResult,
-                              @ModelAttribute Blogger blogger, @ModelAttribute Article article, @RequestParam(value = "id") long id) {
+                              BindingResult bindingResult, Model model/*,
+                              @RequestParam(value = "article_id") long id/*, @RequestParam(value = "blogger_id") long id2*/) {
 
         if (bindingResult.hasErrors()) {
             return "comments/new";
         }
 
-        article.setId(id);
-
-        System.out.println(comment.getCommentText());
-        System.out.println(comment.getBlogger());
-        System.out.println(comment.getArticle());
-//        System.out.println(blogger.getId());
+        model.addAttribute("listOfBloggers", bloggerService.getAllBloggers());
+        model.addAttribute("listOfArticles", articleService.getAllArticles());
 
         commentService.saveComment(new Comment(comment.getCommentText(), comment.getBlogger(), comment.getArticle()));
 
-        return "redirect:/articles/showFormForRead/{id}"; // need to ensure that correct ID gets in
+//        return "redirect:/articles/showFormForRead/{id}"; // need to ensure that correct ID gets in
+        return "redirect:/articles"; // need to ensure that correct ID gets in
     }
 }

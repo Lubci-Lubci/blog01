@@ -13,46 +13,42 @@ public class Blogger {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-//    @NotEmpty(message = "User name can't be empty")
+    @NotEmpty(message = "Username could not be empty")
     @Column (name = "user_name")
     private String userName;
 
-//    @NotEmpty(message = "Password can't be empty")
+    @NotEmpty(message = "Password could not be empty")
     @Column(name = "password")
     private String password;
 
 //    @Column(name = "admin")
 //    private boolean admin;
-
-//     toto treba este dorobit domysliet ze ako
     @OneToMany(mappedBy = "blogger")
-    private List<Article> articleList;
+    private List<Article> articleList = new ArrayList<>();
 
-//     toto treba este dorobit domysliet ze ako
     @OneToMany(mappedBy = "blogger")
-    private List<Comment> commentList;
+    private List<Comment> commentList = new ArrayList<>();
 
-//    @NotEmpty(message = "Name can't be empty")
+    @NotEmpty(message = "Name could not be empty")
     @Column(name = "first_name")
     private String firstName;
 
-//    @NotEmpty(message = "Name can't be empty")
+    @NotEmpty(message = "Name could not be empty")
     @Column(name = "last_name")
     private String lastName;
 
     @Email(message = "Email patter is not correct")
-//    @NotEmpty(message = "Name can't be empty")
+    @NotEmpty(message = "Name could not be empty")
     @Column(name = "email")
     private String email;
 
-//    @NotEmpty(message = "Age can't be empty")
+//    @NotEmpty(message = "Age could not be empty")
 //    @Column(name = "age")
 //    //@Pattern(^\d{1,2}$)
 //    private int age;
 
 //    @GeneratedValue(strategy = GenerationType.AUTO)
 //    private Date createdDate;
-
 
     public Blogger() {
     }

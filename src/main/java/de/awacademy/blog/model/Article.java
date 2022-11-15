@@ -5,6 +5,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -20,8 +22,8 @@ public class Article {
     @Column(name = "title")
     private String title;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private LocalDateTime createdDate;
+//    @GeneratedValue
+//    private Date createdDate;
 
     @NotEmpty(message = "You could not post an empty article")
     @Column(name = "content")
@@ -32,7 +34,7 @@ public class Article {
     private Blogger blogger;
 
     @OneToMany(mappedBy = "article")
-    private List<Comment> commentList;
+    private List<Comment> commentList = new ArrayList<>();
 
     public Article() {
     }
@@ -53,16 +55,18 @@ public class Article {
         this.title = title;
     }
 
-    public LocalDateTime getCreatedDate() {
-        LocalDateTime dateTime = LocalDateTime.now();
-        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        createdDate.format(dateFormat);
-        return createdDate;
-    }
-
-    public void setCreatedDate(LocalDateTime createdDate) {
-        this.createdDate = createdDate;
-    }
+//    public Date getCreatedDate() {
+//        Date dateTime = new Date();
+////        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+//
+//       createdDate = dateTime;
+//
+//        return createdDate;
+//    }
+//
+//    public void setCreatedDate(Date createdDate) {
+//        this.createdDate = createdDate;
+//    }
 
     public String getContent() {
         return content;

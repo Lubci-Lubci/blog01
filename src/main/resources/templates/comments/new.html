@@ -19,8 +19,8 @@
             <label>Username:<br/></label>
               <select>
 <!--             <select th:field="*{blogger.id}">-->
-                <option th:each="blogger :${listOfBloggers}" th:value="${blogger.id}" th:text="${blogger.userName}"></option>
-             </select>
+                <option th:each="blogger :${listOfBloggers}" th:value="${blogger.id}" th:field="*{blogger}" th:text="${blogger.userName}"></option>
+              </select>
           </span>
 
           <span>
@@ -28,8 +28,9 @@
             <textarea th:field="*{commentText}" placeholder="Your comment..."></textarea>
             <br>
           </span>
+            <input type="hidden" th:field="*{article}">
 
-          <button type="submit" th:value="${article_id}">Add Comment</button>
+          <button type="submit">Add Comment</button>
         </form>
         <hr>
         <a th:href="@{/bloggers}">Go to Bloggers List</a><br>

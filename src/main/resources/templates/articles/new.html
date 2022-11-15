@@ -16,28 +16,24 @@
         <br>
       </span>
 
-<!--      <span>-->
-<!--        <label>Username:<br/></label>-->
-<!--        <input type="text" th:field="*{blogger.userName}" placeholder="username">-->
-<!--        <br>-->
-<!--      </span>-->
-
       <span>
         <label>Username:<br/></label>
         <select th:field="*{blogger.id}">
           <option th:each="blogger :${listOfBloggers}" th:value="${blogger.id}" th:text="${blogger.userName}"></option>
         </select>
       </span>
-<!--      <span>-->
-<!--        <label>UserId:<br/></label>-->
-<!--        <input type="text" th:field="*{blogger.id}" placeholder="userID">-->
-<!--        <br/>-->
-<!--      </span>-->
+
       <span>
         <label>Content:<br/></label>
         <textarea th:field="*{content}" placeholder="Your content..."></textarea>
         <br>
       </span>
+
+<!--      <span>-->
+<!--        <label>Date of publish:<br/></label>-->
+<!--        <p th:text="${article.createdDate}"></p>-->
+<!--        <br>-->
+<!--      </span>-->
 
       <input type="hidden" th:field="*{id}">
       <button type="submit">Post this Article</button>
