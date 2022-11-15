@@ -28,7 +28,8 @@
             <textarea th:field="*{commentText}" placeholder="Your comment..."></textarea>
             <br>
           </span>
-          <button type="submit">Add Comment</button>
+
+          <button type="submit" th:value="${article_id}">Add Comment</button>
         </form>
         <hr>
         <a th:href="@{/bloggers}">Go to Bloggers List</a><br>

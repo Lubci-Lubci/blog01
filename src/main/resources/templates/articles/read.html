@@ -24,7 +24,7 @@
 
 <!--    <input type="hidden" th:field="*{id}">-->
 <!--    <hr>-->
-    <a th:href="@{/comments/showNewCommentForm}">Comment</a>
+    <a th:href="@{/comments/showNewCommentForm/{id}(id=${article.id})}">Comment</a>
     <br/>
     <hr>
     <a th:href="@{/articles/showFormForEdit/{id}(id=${article.id})}">Edit</a><br>

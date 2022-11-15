@@ -144,25 +144,34 @@ public class BloggerController {
 
     /* ----------------------   Comment stuff   ----------------------*/
 
-    @GetMapping("/comments/showNewCommentForm")
-    public String showNewCommentForm(Model model){
+    @GetMapping("/comments/showNewCommentForm/{id}")
+    public String showNewCommentForm(@PathVariable(value = "id") long id, Model model){
         model.addAttribute("comment", new Comment());
+
+//        Article article = articleService.getArticleById(id);
+//        model.addAttribute("article_id", article.getId());
+
+//        Comment comment = commentService.getCommentById(id);
+
         model.addAttribute("listOfBloggers", bloggerService.getAllBloggers());
-        model.addAttribute("listOfArticles", articleService.getAllArticles());
 
         return "comments/new";
     }
     @PostMapping("/comments/saveComment")
-    public String saveComment(@Valid @ModelAttribute Comment comment/*,
-                              BindingResult bindingResult*/,
-                              @ModelAttribute Blogger blogger) {
-/*        if (bindingResult.hasErrors()){
+    public String saveComment(@Valid @ModelAttribute Comment comment,
+                              BindingResult bindingResult,
+                              @ModelAttribute Blogger blogger, @ModelAttribute Article article, @RequestParam(value = "id") long id) {
+
+        if (bindingResult.hasErrors()) {
             return "comments/new";
-        }*/
+        }
+
+        article.setId(id);
+
         System.out.println(comment.getCommentText());
         System.out.println(comment.getBlogger());
         System.out.println(comment.getArticle());
-        System.out.println(blogger.getId());
+//        System.out.println(blogger.getId());
 
         commentService.saveComment(new Comment(comment.getCommentText(), comment.getBlogger(), comment.getArticle()));
 
