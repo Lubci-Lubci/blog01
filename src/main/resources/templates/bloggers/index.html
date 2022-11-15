@@ -32,7 +32,10 @@
 <!--                <td th:text="${blogger.age}"></td>-->
                 <td>
                     <a th:href="@{/bloggers/showFormForEdit/{id}(id=${blogger.id})}">Edit</a>
-                    <a th:href="@{/bloggers/showFormForDelete/{id}(id=${blogger.id})}">Delete</a>
+
+                    <a th:data-confirm-delete="|Do you really want to delete this?|"
+                       onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+                       th:href="@{/bloggers/showFormForDelete/{id}(id=${blogger.id})}">Delete</a>
                 </td>
             </tr>
           </tbody>
