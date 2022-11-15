@@ -18,8 +18,8 @@ public class Comment {
     @Column(name = "comment_text")
     private String commentText;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Date createdDate;
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Date createdDate;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "blogger_id", nullable = false)
@@ -50,13 +50,13 @@ public class Comment {
         this.commentText = commentText;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
+//    public Date getCreatedDate() {
+//        return createdDate;
+//    }
+//
+//    public void setCreatedDate(Date createdDate) {
+//        this.createdDate = createdDate;
+//    }
 
     public Blogger getBlogger() {
         return blogger;

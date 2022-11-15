@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Blog Web App</title>
+        <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
+    </head>
+    <body>
+        <h2>Create new Comment</h2>
+        <form action="#" th:action="@{/comments/saveComment}" th:object="${comment}" method="post">
+          <span>
+            <label>Username:<br/></label>
+            <input type="text" th:field="*{blogger.userName}" placeholder="username">
+            <br>
+          </span>
+          <span>
+            <label>UserId:<br/></label>
+            <input type="text" th:field="*{blogger.id}" placeholder="userID">
+            <br/>
+          </span>
+          <span>
+            <label>Comment text:<br/></label>
+            <textarea th:field="*{commentText}" placeholder="Your comment..."></textarea>
+            <br>
+          </span>
+          <input type="hidden" th:field="*{article.id}">
+          <button type="submit">Add Comment</button>
+        </form>
+    </body>
+</html>

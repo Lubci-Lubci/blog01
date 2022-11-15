@@ -1,9 +1,29 @@
+/*
+#e3e0cc
+#f0f0f0
+#c5d5c5
+#9fa9a3
+*/
+
 body {
-    background-color: slategray;
+    background-color: #f0f0f0;
 }
 h2 {
-    color: darkolivegreen;
+    color: #9fa9a3;
+    font-family: Calibri;
+
 }
 p {
-    color: gray;
+    color: black;
+    font-family: Calibri;
+}
+
+a {
+    color: #9fa9a3;
+    font-family: Calibri;
+}
+
+button {
+    color: #9fa9a3;
+    font-family: Calibri;
 }

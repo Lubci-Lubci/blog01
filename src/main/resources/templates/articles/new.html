@@ -15,24 +15,31 @@
         <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
         <br>
       </span>
+
+<!--      <span>-->
+<!--        <label>Username:<br/></label>-->
+<!--        <input type="text" th:field="*{blogger.userName}" placeholder="username">-->
+<!--        <br>-->
+<!--      </span>-->
+
       <span>
         <label>Username:<br/></label>
-        <input type="text" th:field="*{blogger.userName}" placeholder="username">
-        <br>
+        <select th:field="*{blogger.id}">
+          <option th:each="blogger :${listOfBloggers}" th:value="${blogger.id}" th:text="${blogger.userName}"></option>
+        </select>
       </span>
-      <span>
-        <label>UserId:<br/></label>
-        <input type="text" th:field="*{blogger.id}" placeholder="userID">
-        <br/>
-      </span>
+<!--      <span>-->
+<!--        <label>UserId:<br/></label>-->
+<!--        <input type="text" th:field="*{blogger.id}" placeholder="userID">-->
+<!--        <br/>-->
+<!--      </span>-->
       <span>
         <label>Content:<br/></label>
         <textarea th:field="*{content}" placeholder="Your content..."></textarea>
         <br>
       </span>
-<!--      <p th:text="${#dates.format(#dates.createNow(), 'YYYY/MM/dd HH:mm')}"></p>-->
-<!--      <input type="hidden" th:field="*{id}">-->
 
+      <input type="hidden" th:field="*{id}">
       <button type="submit">Post Article</button>
     </form>
     <hr>

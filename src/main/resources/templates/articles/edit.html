@@ -3,20 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <title>Blog Web App</title>
+  <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
 </head>
 <body>
 <h2>Edit Article</h2>
   <form action="#" th:action="@{/articles/saveArticle}" th:object="${article}" method="post">
 
-    <input type="text" th:field="*{title}" placeholder="Insert title of article">
-    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
-    <br>
 
-    <textarea th:field="*{content}"></textarea>
-    <br>
+    <span>
+      <label>Title:<br/></label>
+      <input type="text" th:field="*{title}">
+      <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+      <br>
+    </span>
+
+    <span>
+      <label>Username:<br/></label>
+      <select th:field="*{blogger.id}">
+        <option th:each="blogger :${listOfBloggers}" th:value="${blogger.id}" th:text="${blogger.userName}"></option>
+      </select>
+    </span>
+
+    <span>
+      <label>Content:<br/></label>
+      <textarea th:field="*{content}"></textarea>
+      <br>
+    </span>
 
     <input type="hidden" th:field="*{id}">
-
     <button type="submit">Save changes and post</button>
   </form>
 </body>

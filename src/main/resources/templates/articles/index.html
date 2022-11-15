@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Blog Web App</title>
+    <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
   </head>
     <body>
       <h1>Blog</h1>
@@ -15,7 +16,7 @@
           <th>Content</th>
           <th>Actions</th>
 <!--          <th>Comments</th>-->
-<!--          <th>Author</th>-->
+          <th>Author</th>
 <!--          <th>No. of comments</th>-->
 <!--          <th>Date of publish</th>-->
         </thead>
@@ -28,7 +29,7 @@
             </td>
 <!--            <td th:text="${article.title}"></td>-->
 <!--            need to make constraint between blogger and articles-->
-<!--            <td th:text="${blogger.nickname}"></td>-->
+            <td th:text="${article.blogger.userName}"></td>
 <!--            need to make constraint between articles and comments-->
 <!--            <td th:text="${article.comments}"></td>-->
 <!--            <td th:text="${article.createdDate}"></td>-->

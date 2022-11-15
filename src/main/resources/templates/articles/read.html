@@ -3,6 +3,7 @@
   <head>
       <meta charset="UTF-8">
       <title>Blog Web App</title>
+      <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
   </head>
   <body>
     <span>
@@ -11,9 +12,23 @@
     <span>
         <p th:text="${article.content}"></p>
     </span>
+<!--    <span>-->
+<!--        <tr th:each="comment : ${listOfComments}">-->
+<!--            <td th:text="${comment.blogger}"></td>-->
+<!--            <td th:text="${comment.commentText}"></td>-->
+<!--            <td>-->
+<!--              <a th:href="@{/articles/showFormForRead/{id}(id=${article.id})}">Add comment</a>-->
+<!--            </td>-->
+<!--          </tr>-->
+<!--    </span>-->
 
 <!--    <input type="hidden" th:field="*{id}">-->
-        <hr>
-        <a th:href="@{/articles}">Back to Articles</a>
+<!--    <hr>-->
+<!--    <a th:href="@{/articles}">Comment</a>-->
+<!--    <br/>-->
+    <hr>
+    <a th:href="@{/articles/showFormForEdit/{id}(id=${article.id})}">Edit</a>
+    <hr>
+    <a th:href="@{/articles}">Back to Articles</a>
   </body>
 </html>

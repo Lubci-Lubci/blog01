@@ -84,6 +84,8 @@ public class BloggerController {
         articles = articles.stream().sorted(Comparator.comparing(Article::getId).reversed())    // chronological order (newest first)
                         .collect(Collectors.toList());
         model.addAttribute("listOfArticles", articles);
+        model.addAttribute("listOfBloggers", bloggerService.getAllBloggers());
+
 
         return "articles/index";
     }
@@ -91,6 +93,7 @@ public class BloggerController {
     @GetMapping("/articles/showNewArticleForm")
     public String showNewArticleForm(Model model){
         model.addAttribute("article", new Article());
+        model.addAttribute("listOfBloggers", bloggerService.getAllBloggers());
         return "articles/new";
     }
 
@@ -109,6 +112,7 @@ public class BloggerController {
     public String showFormForEditArticle(@PathVariable(value = "id") long id, Model model){
         Article article = articleService.getArticleById(id);
         model.addAttribute("article", article);
+        model.addAttribute("listOfBloggers", bloggerService.getAllBloggers());
         return "articles/edit";
     }
 
@@ -125,4 +129,24 @@ public class BloggerController {
         model.addAttribute("article", article);
         return "articles/read";
     }
+
+    /* ----------------------   Comment stuff   ----------------------*/
+
+//    @GetMapping("/comments/showNewCommentForm")
+//    public String showNewCommentForm(Model model){
+//        model.addAttribute("article", new Article());
+//        return "comments/new";
+//    }
+//
+//    @PostMapping("/comments/saveComment")
+//    public String saveComment(@Valid @ModelAttribute Article article,
+//                              BindingResult bindingResult) {
+//        if (bindingResult.hasErrors()){
+//            return "comments/new";
+//        }
+//        articleService.saveArticle(article);
+//
+//        return "redirect:/articles/showFormForRead/{id}"; // need to ensure that correct ID gets in
+//    }
+
 }
