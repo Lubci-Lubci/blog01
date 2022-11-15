@@ -7,7 +7,7 @@
   </head>
     <body>
       <h1>List of bloggers</h1>
-      <a th:href="@{/bloggers/showNewBloggerForm}"><button>Add Blogger</button>></a><br>
+      <a th:href="@{/bloggers/showNewBloggerForm}"><button>Add Blogger</button></a><br>
       <p th:if="${listOfBloggers.size() < 1}">
           <span>There is no bloggers!</span>
       </p> <br>
@@ -38,7 +38,7 @@
           </tbody>
       </table>
         <hr>
-      <a th:href="@{/articles}"><button>Go to Articles</button>></a><br><br>
-      <a th:href="@{/}"><button>Back to start</button>></a>
+      <a th:href="@{/articles}"><button>Go to Articles</button></a><br><br>
+      <a th:href="@{/}"><button>Back to start</button></a>
     </body>
 </html>
