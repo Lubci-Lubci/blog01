@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Blog Web App</title>
-  <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
-</head>
-<body>
-<h2>Edit Article</h2>
-  <form action="#" th:action="@{/articles/saveArticle}" th:object="${article}" method="post">
+  <head>
+    <meta charset="UTF-8">
+    <title>Blog Web App</title>
+    <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
+  </head>
+  <body>
+  <h2>Edit Article</h2>
+    <form action="#" th:action="@{/articles/saveArticle}" th:object="${article}" method="post">
 
+      <span>
+        <label>Title:<br/></label>
+        <input type="text" th:field="*{title}">
+        <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+        <br>
+      </span>
 
-    <span>
-      <label>Title:<br/></label>
-      <input type="text" th:field="*{title}">
-      <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
-      <br>
-    </span>
+      <span>
+        <label>Username:<br/></label>
+        <select th:field="*{blogger.id}">
+          <option th:each="blogger :${listOfBloggers}" th:value="${blogger.id}" th:text="${blogger.userName}"></option>
+        </select>
+      </span>
 
-    <span>
-      <label>Username:<br/></label>
-      <select th:field="*{blogger.id}">
-        <option th:each="blogger :${listOfBloggers}" th:value="${blogger.id}" th:text="${blogger.userName}"></option>
-      </select>
-    </span>
+      <span>
+        <label>Content:<br/></label>
+        <textarea th:field="*{content}"></textarea>
+        <br>
+      </span>
 
-    <span>
-      <label>Content:<br/></label>
-      <textarea th:field="*{content}"></textarea>
-      <br>
-    </span>
+      <input type="hidden" th:field="*{id}">
+      <button type="submit">Save changes and post</button>
+    </form>
 
-    <input type="hidden" th:field="*{id}">
-    <button type="submit">Save changes and post</button>
-  </form>
+    <hr>
+    <a th:href="@{/articles}"><button>Back to Articles</button></a><br><br>
+    <a th:href="@{/bloggers}"><button>Go to Bloggers List</button></a><br><br>
+    <a th:href="@{/}"><button>Back to start</button></a>
 
-  <hr>
-<a th:href="@{/articles}"><button>Back to Articles</button></a><br><br>
-<a th:href="@{/bloggers}"><button>Go to Bloggers List</button></a><br><br>
-<a th:href="@{/}"><button>Back to start</button></a>
-
-</body>
+  </body>
 </html>

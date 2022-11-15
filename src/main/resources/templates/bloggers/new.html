@@ -19,8 +19,6 @@
             <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
             <input type="text" th:field="*{email}" placeholder="Insert email"><br><br>
             <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
-<!--            <input type="text" th:field="*{age}" placeholder="Insert age">-->
-<!--            <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p>-->
 
             <!-- Add hidden form field to handle update-->
             <input type="hidden" th:field="*{id}">
