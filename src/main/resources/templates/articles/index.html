@@ -7,6 +7,7 @@
   </head>
     <body>
       <h1>Blog</h1>
+      <a th:href="@{/articles/showNewArticleForm}">Create a new Article</a><br><br>
       <p th:if="${listOfArticles.isEmpty()}">
         No article yet!
       </p>
@@ -36,7 +37,9 @@
           </tr>
         </tbody>
       </table>
-      <br>
-      <a th:href="@{/articles/showNewArticleForm}">Create a new Article</a>
+
+      <hr>
+      <a th:href="@{/bloggers}">Go to Bloggers List</a><br>
+      <a th:href="@{/}">Back to start</a>
     </body>
   </html>

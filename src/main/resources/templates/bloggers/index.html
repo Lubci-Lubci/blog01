@@ -3,13 +3,15 @@
   <head>
       <meta charset="UTF-8">
       <title>Blog Web App</title>
+      <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
   </head>
     <body>
       <h1>List of bloggers</h1>
-      <a th:href="@{/bloggers/showNewBloggerForm}">Add Blogger</a>
+      <a th:href="@{/bloggers/showNewBloggerForm}">Add Blogger</a><br>
       <p th:if="${listOfBloggers.size() < 1}">
           <span>There is no bloggers!</span>
-      </p>
+      </p> <br>
+      <hr>
       <table th:unless="${listOfBloggers.size() < 1}">
           <thead>
               <th>First Name</th>
@@ -35,5 +37,8 @@
             </tr>
           </tbody>
       </table>
+        <hr>
+      <a th:href="@{/articles}">Go to Articles</a><br>
+      <a th:href="@{/}">Back to start</a>
     </body>
 </html>

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-      <meta charset="UTF-8">
-      <title>Blog Web App</title>
-      <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
-  </head>
-  <body>
-    <span>
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Web App</title>
+    <link th:href="@{/styles/css/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<span>
         <h2 th:text="${article.title}"></h2>
     </span>
-    <span>
+<span>
         <p th:text="${article.content}"></p>
     </span>
 <!--    <span>-->
@@ -29,6 +29,8 @@
     <hr>
     <a th:href="@{/articles/showFormForEdit/{id}(id=${article.id})}">Edit</a>
     <hr>
-    <a th:href="@{/articles}">Back to Articles</a>
-  </body>
+    <a th:href="@{/articles}">Back to Articles</a><br>
+    <a th:href="@{/bloggers}">Go to Bloggers List</a><br>
+    <a th:href="@{/}">Back to start</a>
+</body>
 </html>

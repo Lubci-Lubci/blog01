@@ -3,6 +3,7 @@
   <head>
       <meta charset="UTF-8">
       <title>Blog Web App</title>
+    <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
   </head>
   <body>
     <h1>Bloggers App</h1>
@@ -16,6 +17,11 @@
       <input type="hidden" th:field="*{id}">
       <button type="submit">Save Blogger</button>
     </form>
+
+    <hr>
+    <a th:href="@{/bloggers}">Back to Bloggers List</a><br>
+    <a th:href="@{/articles}">Go to Articles</a><br>
+    <a th:href="@{/}">Back to start</a>
 
   </body>
 </html>
