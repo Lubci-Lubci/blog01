@@ -35,7 +35,6 @@ public class CommentServiceImpl implements CommentService {
         } else {
             throw new RuntimeException("Comment with id " + id + " was not found");
         }
-
         return comment;
     }
 

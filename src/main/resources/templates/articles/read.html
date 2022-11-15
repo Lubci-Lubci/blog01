@@ -24,8 +24,8 @@
 
 <!--    <input type="hidden" th:field="*{id}">-->
 <!--    <hr>-->
-<!--    <a th:href="@{/articles}">Comment</a>-->
-<!--    <br/>-->
+    <a th:href="@{/comments/showNewCommentForm}">Comment</a>
+    <br/>
     <hr>
     <a th:href="@{/articles/showFormForEdit/{id}(id=${article.id})}">Edit</a><br>
     <a th:href="@{/articles/showFormForDeleteArticle/{id}(id=${article.id})}">Delete</a>

@@ -34,6 +34,12 @@ public class Comment {
     public Comment() {
     }
 
+    public Comment(String commentText, Blogger blogger, Article article) {
+        this.commentText = commentText;
+        this.blogger = blogger;
+        this.article = article;
+    }
+
     public long getId() {
         return id;
     }

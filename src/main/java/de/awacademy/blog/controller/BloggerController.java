@@ -2,12 +2,11 @@ package de.awacademy.blog.controller;
 
 import de.awacademy.blog.model.Article;
 import de.awacademy.blog.model.Blogger;
-import de.awacademy.blog.model.User;
-import de.awacademy.blog.repository.UserRepository;
+import de.awacademy.blog.model.Comment;
 import de.awacademy.blog.service.ArticleService;
 import de.awacademy.blog.service.BloggerService;
+import de.awacademy.blog.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,6 +21,7 @@ import java.util.stream.Collectors;
 public class BloggerController {
     private BloggerService bloggerService;
     private ArticleService articleService;
+    private CommentService commentService;
 
     @Autowired
     public BloggerController(BloggerService bloggerService, ArticleService articleService) {
@@ -35,33 +35,6 @@ public class BloggerController {
 
     return Login.isEmpty() ? "Hello guest" : "Hello " + Login;
     }  */
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @GetMapping("/")
-    public String viewHomePage(){
-        return "index";
-    }
-
-    @GetMapping("/register")
-    public String showRegistrationForm(Model model) {
-        model.addAttribute("user", new User());
-
-        return "signup_form";
-    }
-
-    // process the registration
-/*    @PostMapping("/process_register")
-    public String processRegister(User user) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
-
-        userRepository.save(user);
-
-        return "register_success";
-    }*/
 
     /* ----------------------   Blogger (users / admins) stuff   ----------------------*/
     @GetMapping("/bloggers")
@@ -157,26 +130,42 @@ public class BloggerController {
     public String showFormForReadArticle(@PathVariable(value = "id") long id, Model model){
         Article article = articleService.getArticleById(id);
         model.addAttribute("article", article);
+
+        model.addAttribute("listOfBloggers", bloggerService.getAllBloggers());
+//        model.addAttribute("listOfComments", commentService.getAllComments());
+
+//        List<Comment> comments = commentService.getAllComments();
+//        comments = comments.stream().sorted(Comparator.comparing(Comment::getId))    // chronological order (newest first)
+//                .collect(Collectors.toList());
+//        model.addAttribute("listOfComments", comments);
+
         return "articles/read";
     }
 
     /* ----------------------   Comment stuff   ----------------------*/
 
-//    @GetMapping("/comments/showNewCommentForm")
-//    public String showNewCommentForm(Model model){
-//        model.addAttribute("article", new Article());
-//        return "comments/new";
-//    }
-//
-//    @PostMapping("/comments/saveComment")
-//    public String saveComment(@Valid @ModelAttribute Article article,
-//                              BindingResult bindingResult) {
-//        if (bindingResult.hasErrors()){
-//            return "comments/new";
-//        }
-//        articleService.saveArticle(article);
-//
-//        return "redirect:/articles/showFormForRead/{id}"; // need to ensure that correct ID gets in
-//    }
+    @GetMapping("/comments/showNewCommentForm")
+    public String showNewCommentForm(Model model){
+        model.addAttribute("comment", new Comment());
+        model.addAttribute("listOfBloggers", bloggerService.getAllBloggers());
+        model.addAttribute("listOfArticles", articleService.getAllArticles());
 
+        return "comments/new";
+    }
+    @PostMapping("/comments/saveComment")
+    public String saveComment(@Valid @ModelAttribute Comment comment/*,
+                              BindingResult bindingResult*/,
+                              @ModelAttribute Blogger blogger) {
+/*        if (bindingResult.hasErrors()){
+            return "comments/new";
+        }*/
+        System.out.println(comment.getCommentText());
+        System.out.println(comment.getBlogger());
+        System.out.println(comment.getArticle());
+        System.out.println(blogger.getId());
+
+        commentService.saveComment(new Comment(comment.getCommentText(), comment.getBlogger(), comment.getArticle()));
+
+        return "redirect:/articles/showFormForRead/{id}"; // need to ensure that correct ID gets in
+    }
 }

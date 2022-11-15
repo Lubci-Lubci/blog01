@@ -8,22 +8,26 @@
     <body>
         <h2>Create new Comment</h2>
         <form action="#" th:action="@{/comments/saveComment}" th:object="${comment}" method="post">
+
+<!--          <span>-->
+<!--            <label>Title of article:<br/></label>-->
+<!--            <p th:field="${comment.article.id}" th:text="${comment.article.title}"></p>-->
+<!--            <br>-->
+<!--          </span>-->
+
           <span>
             <label>Username:<br/></label>
-            <input type="text" th:field="*{blogger.userName}" placeholder="username">
-            <br>
+              <select>
+<!--             <select th:field="*{blogger.id}">-->
+                <option th:each="blogger :${listOfBloggers}" th:value="${blogger.id}" th:text="${blogger.userName}"></option>
+             </select>
           </span>
-          <span>
-            <label>UserId:<br/></label>
-            <input type="text" th:field="*{blogger.id}" placeholder="userID">
-            <br/>
-          </span>
+
           <span>
             <label>Comment text:<br/></label>
             <textarea th:field="*{commentText}" placeholder="Your comment..."></textarea>
             <br>
           </span>
-          <input type="hidden" th:field="*{article.id}">
           <button type="submit">Add Comment</button>
         </form>
     </body>
