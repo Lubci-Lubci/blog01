@@ -3,6 +3,7 @@ package de.awacademy.blog.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class Article {
 
     @NotEmpty(message = "You could not post an empty article")
     @Column(name = "content")
+    @Size(max = 2147483646)
     private String content;
 
     @ManyToOne(optional = false)
