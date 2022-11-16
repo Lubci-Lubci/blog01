@@ -21,8 +21,12 @@
     <h2>Bloggers App</h2>
 <!--      <form action="/" method="post">-->
 
+    <a th:href="@{/articles}">
+        <button>Go to Articles</button><br><br>
+    </a>
+
     <a th:href="@{/bloggers}">
-      <button>List of bloggers</button><br><br>
+      <button>Bloggers</button><br><br>
     </a>
 
     <a th:href="@{/bloggers/showNewBloggerForm}">
@@ -37,10 +41,6 @@
     onclick="if (!confirm(this.getAttribute('data-not-supported'))) return false"
     th:href="@{redirect:/index}">
         <button>Log in as existing blogger</button><br><br>
-    </a>
-
-    <a th:href="@{/articles}">
-        <button>Go to Articles</button><br><br>
     </a>
 
 
