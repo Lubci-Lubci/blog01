@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -136,10 +137,9 @@ public class BloggerController {
         model.addAttribute("listOfBloggers", bloggerService.getAllBloggers());
         model.addAttribute("listOfComments", commentService.getAllComments());
 
-//        model.addAttribute("listOfComments", commentService.getAllComments());
-
 //        List<Comment> comments = commentService.getAllComments();
-//        comments = comments.stream().sorted(Comparator.comparing(Comment::getId))    // chronological order (newest first)
+//        comments.stream()
+//                .filter(a -> article.getId() == id)
 //                .collect(Collectors.toList());
 //        model.addAttribute("listOfComments", comments);
 
@@ -152,27 +152,23 @@ public class BloggerController {
     public String showNewCommentForm(@PathVariable(value = "id") long id, Model model, Blogger blogger) {
         model.addAttribute("comment", new Comment());
 
-//        Article article = articleService.getArticleById(id);
-//        model.addAttribute("article_id", article);
         model.addAttribute("listOfArticles", articleService.getAllArticles());
-
         model.addAttribute("listOfBloggers", bloggerService.getAllBloggers());
 
         return "comments/new";
     }
     @PostMapping("/comments/saveComment")
-    public String saveComment(@Valid @ModelAttribute Comment comment,
-                              BindingResult bindingResult, Model model/*,
-                              @RequestParam(value = "article_id") long id/*, @RequestParam(value = "blogger_id") long id2*/) {
-
-        if (bindingResult.hasErrors()) {
-            return "comments/new";
-        }
-
+    public String saveComment(/*@Valid */@ModelAttribute Comment comment,
+                              /*BindingResult bindingResult,*/ Model model) {
+//        if (bindingResult.hasErrors()) {
+//            return "comments/new";
+//        }
         model.addAttribute("listOfBloggers", bloggerService.getAllBloggers());
         model.addAttribute("listOfArticles", articleService.getAllArticles());
 
-        commentService.saveComment(new Comment(comment.getCommentText(), comment.getBlogger(), comment.getArticle()));
+//        commentService.saveComment(new Comment(comment.getCommentText(), comment.getBlogger(), comment.getArticle()));
+
+        commentService.saveComment(comment);
 
 //        return "redirect:/articles/showFormForRead/{id}"; // need to ensure that correct ID gets in
         return "redirect:/articles"; // need to ensure that correct ID gets in

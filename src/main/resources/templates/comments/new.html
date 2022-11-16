@@ -19,22 +19,40 @@
             <label>Username:<br/></label>
               <select>
 <!--             <select th:field="*{blogger.id}">-->
-                <option th:each="blogger :${listOfBloggers}" th:value="${blogger.id}" th:field="*{blogger}" th:text="${blogger.userName}"></option>
+                <option th:each="blogger :${listOfBloggers}" th:value="${blogger.id}" th:field="*{blogger}" th:text="|${blogger.userName} (ID: ${blogger.id})|"></option>
               </select>
+              <input type="text" th:field="*{blogger}" placeholder="Insert ID of blogger">
           </span>
+
+          <p th:if="${listOfArticles.isEmpty()}">
+              <span>No article yet!</span>
+          </p>
+          <br/>
+          <table th:unless="${listOfArticles.isEmpty()}">
+            <tbody>
+              <tr th:each="article : ${listOfArticles}">
+                <td th:text="${article.id}"></td>
+                <td th:text="${article.title}"></td>
+                <td th:text="${article.blogger.userName}"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <input type="text" th:field="*{article}" placeholder="Insert ID of article">
+            <br/>
+            <br/>
 
           <span>
             <label>Comment text:<br/></label>
-            <textarea th:field="*{commentText}" placeholder="Your comment..."></textarea>
-            <br>
+            <textarea rows="3" cols="100" th:field="*{commentText}" placeholder="Your comment..."></textarea>
           </span>
-            <input type="hidden" th:field="*{article}">
+          <br/>
 
-          <button type="submit">Add Comment</button>
+          <button type="submit">Post comment</button>
         </form>
         <hr>
-        <a th:href="@{/bloggers}">Go to Bloggers List</a><br>
-        <a th:href="@{/articles}">Back to Articles</a><br>
-        <a th:href="@{/}">Back to start</a>
+        <a th:href="@{/articles}"><button>Back to Articles</button></a><br><br>
+        <a th:href="@{/bloggers}"><button>Go to Bloggers List</button></a><br><br>
+        <a th:href="@{/}"><button>Back to start</button></a>
     </body>
 </html>

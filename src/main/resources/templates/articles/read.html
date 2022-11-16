@@ -13,15 +13,35 @@
         <span>
             <p th:text="${article.content}"></p>
         </span>
-<!--    <span>-->
-<!--        <tr th:each="comment : ${listOfComments}">-->
-<!--            <td th:text="${comment.commentText}"></td>-->
-<!--          </tr>-->
-<!--    </span>-->
 
-        <a th:href="@{/comments/showNewCommentForm/{id}(id=${article.id})}">Comment</a>
-        <br/>
-        <hr>
+<!--        <span>-->
+<!--            <p th:text="|Post ID: ${article.id}|"></p>-->
+<!--        </span>-->
+<!--        <hr/>-->
+
+<!--        <p th:if="${listOfComments.isEmpty()}">-->
+<!--            <span>No comments</span>-->
+<!--        </p>-->
+<!--        <br/>-->
+<!--        <hr>-->
+<!--        <table th:unless="${listOfComments.isEmpty()}">-->
+<!--            <label>All comments</label>-->
+<!--            <br/>-->
+<!--            <thead>-->
+<!--            <th>Author</th>-->
+<!--            <th>Comment</th>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr th:each="comment : ${listOfComments}">-->
+<!--                <td th:text="${comment.blogger.userName}"></td>-->
+<!--                <td th:text="${comment.commentText}"></td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+
+        <hr/>
+
+<!--        <a th:href="@{/comments/showNewCommentForm/{id}(id=${article.id})}">Add comment</a>-->
         <a th:href="@{/articles/showFormForEdit/{id}(id=${article.id})}">Edit</a>
         <a th:data-confirm-delete="|Do you really want to delete this?|"
            onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"

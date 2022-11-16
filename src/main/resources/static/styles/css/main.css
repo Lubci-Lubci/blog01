@@ -21,6 +21,11 @@ p {
     padding: 5px;
 }
 
+span {
+    color: black;
+    font-family: Calibri;
+}
+
 textarea {
     padding: 5px;
     border-radius: 6px;
