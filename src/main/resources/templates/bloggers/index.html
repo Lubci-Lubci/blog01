@@ -6,7 +6,7 @@
       <link th:href="@{styles/css/main.css}" rel="stylesheet" />
   </head>
     <body>
-      <h1>List of bloggers</h1>
+      <h2>List of bloggers</h2>
       <a th:href="@{/bloggers/showNewBloggerForm}"><button>Add Blogger</button></a>
       <br>
       <p th:if="${listOfBloggers.size() < 1}">

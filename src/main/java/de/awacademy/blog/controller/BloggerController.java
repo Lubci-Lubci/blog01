@@ -73,6 +73,18 @@ public class BloggerController {
         return "/bloggers/edit";
     }
 
+    @PostMapping("/bloggers/showFormForEdit/{id}")
+    public String saveInEditBlogger(@Valid @ModelAttribute Blogger blogger,
+                                    BindingResult bindingResult){
+        if (bindingResult.hasErrors()){
+            return "bloggers/edit";
+        }
+
+        bloggerService.saveBlogger(blogger);
+
+        return "redirect:/bloggers";
+    }
+
     @GetMapping("bloggers/showFormForDelete/{id}")
     public String showFormForDelete(@PathVariable(value = "id") long id){
         bloggerService.deleteBloggerById(id);

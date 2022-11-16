@@ -7,18 +7,18 @@
       </head>
         <body>
 <!--        <h1>Blog Web App</h1>-->
-        <h2>Create new blogger</h2>
+        <h2>Edit blogger</h2>
         <form action="#" th:action="@{/bloggers/saveBlogger}" th:object="${blogger}" method="post">
             <input type="text" th:field="*{firstName}" placeholder="Insert first name">
-            <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+            <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p><br><br>
             <input type="text" th:field="*{lastName}" placeholder="Insert last name">
-            <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+            <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p><br><br>
             <input type="text" th:field="*{userName}" placeholder="Insert userName">
-            <p th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></p>
+            <p th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></p><br><br>
             <input type="password" th:field="*{password}" placeholder="Insert password">
-            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p><br><br>
             <input type="text" th:field="*{email}" placeholder="Insert email">
-            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p><br><br>
 
             <!-- Add hidden form field to handle update-->
             <input type="hidden" th:field="*{id}">
