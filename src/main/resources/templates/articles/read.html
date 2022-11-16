@@ -39,7 +39,9 @@
 <!--            </tbody>-->
 <!--        </table>-->
 
-        <hr/>
+        <span>
+            <hr/>
+        </span>
 
 <!--        <a th:href="@{/comments/showNewCommentForm/{id}(id=${article.id})}">Add comment</a>-->
         <a th:href="@{/articles/showFormForEdit/{id}(id=${article.id})}">Edit</a>
@@ -47,8 +49,12 @@
            onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
            th:href="@{/articles/showFormForDeleteArticle/{id}(id=${article.id})}">Delete</a>
         <hr>
-        <a th:href="@{/articles}"><button>Back to Articles</button></a><br><br>
-        <a th:href="@{/bloggers}"><button>Go to Bloggers List</button></a><br><br>
+        <a th:href="@{/articles}"><button>Back to Articles</button></a><br>
+        <a th:href="@{/bloggers}"><button>Go to Bloggers List</button></a><br>
         <a th:href="@{/}"><button>Back to start</button></a>
     </body>
+    <footer>
+        <p><p>© 2022 powered by Lubomir Han & Miroslav Kralik</p>
+
+    </footer>
 </html>

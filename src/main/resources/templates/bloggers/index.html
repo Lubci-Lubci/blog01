@@ -12,7 +12,9 @@
       <p th:if="${listOfBloggers.size() < 1}">
           <span>There is no bloggers!</span>
       </p> <br>
-      <hr>
+      <span>
+            <hr/>
+        </span>
       <table th:unless="${listOfBloggers.size() < 1}">
           <thead>
               <th>First Name</th>
@@ -41,8 +43,14 @@
             </tr>
           </tbody>
       </table>
-        <hr>
-      <a th:href="@{/articles}"><button>Go to Articles</button></a><br><br>
+      <span>
+            <hr/>
+        </span>
+      <a th:href="@{/articles}"><button>Go to Articles</button></a><br>
       <a th:href="@{/}"><button>Back to start</button></a>
     </body>
+  <footer>
+      <p><p>© 2022 powered by Lubomir Han & Miroslav Kralik</p>
+
+  </footer>
 </html>

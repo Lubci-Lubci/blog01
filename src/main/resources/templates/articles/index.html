@@ -7,13 +7,14 @@
   </head>
   <body>
     <h2>Blog</h2>
-    <a th:href="@{/articles/showNewArticleForm}"><button>Create a new Article</button></a>
-    <br>
+    <a th:href="@{/articles/showNewArticleForm}"><button>Create a new Article</button><br></a>
     <p th:if="${listOfArticles.isEmpty()}">
       <span>No article yet!</span>
+      <br/>
     </p>
-    <br/>
-    <hr>
+    <span>
+      <hr/>
+    </span>
     <table th:unless="${listOfArticles.isEmpty()}">
       <thead>
         <th>Title of article</th>
@@ -33,8 +34,14 @@
       </tbody>
     </table>
 
-    <hr>
-    <a th:href="@{/bloggers}"><button>Go to Bloggers List</button></a><br><br>
+    <span>
+      <hr/>
+    </span>
+    <a th:href="@{/bloggers}"><button>Go to Bloggers List</button></a><br>
     <a th:href="@{/}"><button>Back to start</button></a>
   </body>
+  <footer>
+    <p><p>© 2022 powered by Lubomir Han & Miroslav Kralik</p>
+
+  </footer>
 </html>
