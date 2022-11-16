@@ -14,18 +14,18 @@
     <table th:unless="${listOfArticles.isEmpty()}">
       <thead>
         <th>Title of article</th>
-        <th>Content</th>
-        <th>Actions</th>
+<!--        <th>Content</th>-->
         <th>Author</th>
+<!--        <th>Actions</th>-->
       </thead>
       <tbody>
         <tr th:each="article : ${listOfArticles}">
           <td th:text="${article.title}"></td>
-          <td th:text="${article.content}"></td>
+<!--          <td th:text="${article.content}"></td>-->
+          <td th:text="${article.blogger.userName}"></td>
           <td>
             <a th:href="@{/articles/showFormForRead/{id}(id=${article.id})}">Read</a>
           </td>
-          <td th:text="${article.blogger.userName}"></td>
         </tr>
       </tbody>
     </table>

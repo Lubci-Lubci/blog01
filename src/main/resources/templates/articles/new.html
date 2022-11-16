@@ -13,19 +13,23 @@
         <label>Title:<br/></label>
         <input type="text" th:field="*{title}" placeholder="Title">
         <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
-        <br>
+        <br/>
+        <br/>
       </span>
 
       <span>
-        <label>Username:<br/></label>
+        <label>Username:</label>
+        <br/>
         <select th:field="*{blogger.id}">
           <option th:each="blogger :${listOfBloggers}" th:value="${blogger.id}" th:text="${blogger.userName}"></option>
         </select>
+        <br/>
+        <br/>
       </span>
 
       <span>
         <label>Content:<br/></label>
-        <textarea th:field="*{content}" placeholder="Your content..."></textarea>
+        <textarea rows="20" cols="100" th:field="*{content}" placeholder="Your content..."></textarea>
         <br>
       </span>
 

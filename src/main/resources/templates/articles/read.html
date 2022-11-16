@@ -23,7 +23,6 @@
         <br/>
         <hr>
         <a th:href="@{/articles/showFormForEdit/{id}(id=${article.id})}">Edit</a>
-        <br>
         <a th:data-confirm-delete="|Do you really want to delete this?|"
            onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
            th:href="@{/articles/showFormForDeleteArticle/{id}(id=${article.id})}">Delete</a>
