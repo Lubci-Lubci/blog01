@@ -7,10 +7,13 @@
   </head>
   <body>
     <h1>Blog</h1>
-    <a th:href="@{/articles/showNewArticleForm}"><button>Create a new Article</button></a><br><br>
+    <a th:href="@{/articles/showNewArticleForm}"><button>Create a new Article</button></a>
+    <br>
     <p th:if="${listOfArticles.isEmpty()}">
-    No article yet!
+      <span>No article yet!</span>
     </p>
+    <br/>
+    <hr>
     <table th:unless="${listOfArticles.isEmpty()}">
       <thead>
         <th>Title of article</th>

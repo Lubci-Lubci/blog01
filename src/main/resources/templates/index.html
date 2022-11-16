@@ -18,9 +18,7 @@
         <h3><a th:href="/@{/articles}">Go to Blogs</a></h3>
       </div>-->
 
-
-
-<!--    <h1>Bloggers App</h1>-->
+    <h1>Bloggers App</h1>
 <!--      <form action="/" method="post">-->
 
     <a th:href="@{/bloggers}">
@@ -31,7 +29,13 @@
         <button >Register as new blogger</button><br><br>
     </a>
 
-    <a th:href="@{/login}">
+<!--    <a th:href="@{/login}">-->
+<!--        <button>Log in as existing blogger</button><br><br>-->
+<!--    </a>-->
+
+    <a th:data-not-supported="| Feature is not supported in the current version :( |"
+    onclick="if (!confirm(this.getAttribute('data-not-supported'))) return false"
+    th:href="@{redirect:/index}">
         <button>Log in as existing blogger</button><br><br>
     </a>
 
